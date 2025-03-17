@@ -1,0 +1,46 @@
+﻿@model UyeOlusturmaDTO
+
+@if (TempData["başarılı"] != null)
+{
+	<div class="alert alert-success">
+		@TempData["başarılı"]
+	</div>
+}
+
+@if (TempData["başarısız"] == null)
+{
+	<p style="color:red">@TempData["başarısız"]</p>
+}
+
+	<div class="row">
+		<div class="col-md-6 offset-3">
+		<form asp-action="KayitOl" asp-controller="GirisEkrani" method="post" novalidate>
+			<div class="form-group">
+				<label asp-for="Ad"></label>
+				<input asp-for="Ad" class="form-control" type="text" />
+				<span asp-validation-for="Ad" class="text"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Soyad"></label>
+				<input asp-for="Soyad" class="form-control" type="text" />
+				<span asp-validation-for="Soyad" class="text"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="KullaniciAdi"></label>
+				<input asp-for="KullaniciAdi" class="form-control" type="text" />
+				<span asp-validation-for="KullaniciAdi" class="text"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="MailAdresi"></label>
+				<input asp-for="MailAdresi" class="form-control" type="text" />
+				<span asp-validation-for="MailAdresi" class="text"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Sifre"></label>
+				<input asp-for="Sifre" class="form-control" type="text" />
+				<span asp-validation-for="Sifre" class="text"></span>
+			</div>
+				<button type="submit" class="btn btn-success w-100" > Onayla </button>
+		</form>
+		</div>
+	</div>

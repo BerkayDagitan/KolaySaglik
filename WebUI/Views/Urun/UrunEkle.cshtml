@@ -1,0 +1,49 @@
+﻿@model UrunOlusturDTO
+
+@if (TempData["urunEklemeBasarili"] != null)
+{
+	<div class="alert alert-success">
+		@TempData["urunEklemeBasarili"]
+	</div>
+}
+
+@if (TempData["urunEklenemedi"] == null)
+{
+	<p style="color:red">@TempData["urunEklenemedi"]</p>
+}
+
+<div class="row">
+	<div class="col-md-6 offset-3">
+		<form asp-action="UrunEkle" asp-controller="Urun" method="post">
+			<div class="form-group">
+				<label asp-for="Adi"></label>
+				<input asp-for="Adi" class="form-control" type="text" />
+				<span asp-validation-for="Adi" class="text"></span>
+			</div>
+			<div class="form-group">
+				<label>Uretici</label>
+				<select class="form-control" asp-for="Kategoriler" asp-items="@Html.GetEnumSelectList(typeof(Kategoriler))">
+					<option value="" disabled selected>Kategori Seçiniz</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Uretici</label>
+				<select class="form-control" asp-for="Uretici" asp-items="@Html.GetEnumSelectList(typeof(Uretici))">
+					<option value ="" disabled selected>Uretici Seçiniz</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label asp-for="OlusturanUye"></label>
+				<input asp-for="OlusturanUye" class="form-control" type="text" />
+				<span asp-validation-for="OlusturanUye" class="text"></span>
+			</div>
+			<div class="form-group">
+				<label>Urun İceriği</label>
+				<select class="form-control" asp-for="UrunIcerikler" asp-items="@Html.GetEnumSelectList(typeof(UrunIcerik))">
+					<option value="" disabled selected>İçerik Seçiniz</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-success w-100"> Onayla </button>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model List<Urun>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Adı : </th>
+			<th>Üretici : </th>
+			<th>Olusturan Üye : </th>
+			<th>Urun Icerik : </th>
+			<th>Eklendiği Tarih : </th>
+			<th>Kategori : </th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var urun in Model)
+		{
+			<tr>
+				<td>@urun.Adi</td>
+				<td>@urun.Uretici</td>
+				<td>@urun.OlusturanUye</td>
+				<td>@urun.UrunIcerikler</td>
+				<td>@urun.OlusturulmaTarihi</td>
+				<td>@urun.Kategori</td>
+				<td>
+					<a asp-action="FavoriListesi" class="btn btn-success">Favorilerime Ekle</a>
+					<a asp-action="KaraListesi" class="btn btn-danger">Kara Listeye Ekle</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
